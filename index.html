@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IB Physics Misconceptions – By Field Type</title>
+<style>
+body {font-family: Arial, sans-serif; margin: 0; background:#f4f6f8;}
+header {background:#1f3c88; color:white; padding:20px; text-align:center;}
+h1 {margin:0;}
+.section {margin:20px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+.section h2 {margin:0; padding:15px; background:#2e5cb8; color:white; border-radius:8px 8px 0 0;}
+.field {border-top:1px solid #ddd; padding:15px;}
+button {background:#ffb703; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; font-weight:bold;}
+.answer {display:none; margin-top:10px; padding:10px; background:#eef2f7; border-left:4px solid #2e5cb8;}
+footer {text-align:center; padding:15px; font-size:0.9em; color:#555;}
+</style>
+<script>
+function toggleAnswer(id){
+  var x=document.getElementById(id);
+  x.style.display = (x.style.display==="block") ? "none":"block";
+}
+</script>
+</head>
+<body>
+
+<header>
+<h1>IB Physics SL & HL</h1>
+<p>Common Misconceptions — Organised by Field Type</p>
+</header>
+
+<div class="section">
+<h2>Gravitational Field</h2>
+
+<div class="field">
+<strong>Misconception:</strong> “Astronauts are weightless because there is no gravity in space.”<br>
+<button onclick="toggleAnswer('g1')">Reveal Physics</button>
+<div id="g1" class="answer">
+Gravity still acts strongly in orbit. Astronauts are in continuous free fall toward Earth, producing apparent weightlessness.
+</div>
+</div>
+
+<div class="field">
+<strong>Misconception:</strong> “Heavier objects fall faster.”<br>
+<button onclick="toggleAnswer('g2')">Reveal Physics</button>
+<div id="g2" class="answer">
+All objects accelerate at the same rate in a gravitational field when air resistance is negligible.
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Electric Field</h2>
+
+<div class="field">
+<strong>Misconception:</strong> “Current is used up in a resistor.”<br>
+<button onclick="toggleAnswer('e1')">Reveal Physics</button>
+<div id="e1" class="answer">
+Charge is conserved. Current remains the same in a series circuit; energy is transferred, not charge lost.
+</div>
+</div>
+
+<div class="field">
+<strong>Misconception:</strong> “Voltage flows through a circuit.”<br>
+<button onclick="toggleAnswer('e2')">Reveal Physics</button>
+<div id="e2" class="answer">
+Voltage is energy per unit charge, not a substance. It is a potential difference that drives current.
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Magnetic Field</h2>
+
+<div class="field">
+<strong>Misconception:</strong> “Magnets attract all metals.”<br>
+<button onclick="toggleAnswer('m1')">Reveal Physics</button>
+<div id="m1" class="answer">
+Only ferromagnetic materials (iron, cobalt, nickel) show strong attraction.
+</div>
+</div>
+
+<div class="field">
+<strong>Misconception:</strong> “A stationary charge in a magnetic field feels a force.”<br>
+<button onclick="toggleAnswer('m2')">Reveal Physics</button>
+<div id="m2" class="answer">
+Magnetic force acts only on moving charges: F = qvB sinθ.
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Nuclear Field</h2>
+
+<div class="field">
+<strong>Misconception:</strong> “Mass is conserved in nuclear reactions.”<br>
+<button onclick="toggleAnswer('n1')">Reveal Physics</button>
+<div id="n1" class="answer">
+Mass converts to energy via E = mc². Mass defect equals binding energy.
+</div>
+</div>
+
+<div class="field">
+<strong>Misconception:</strong> “Fusion always releases more energy than fission.”<br>
+<button onclick="toggleAnswer('n2')">Reveal Physics</button>
+<div id="n2" class="answer">
+Energy release depends on binding energy per nucleon. Light nuclei fuse; heavy nuclei fission to move toward iron peak.
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Particle Physics Field</h2>
+
+<div class="field">
+<strong>Misconception:</strong> “Antimatter is just negative matter.”<br>
+<button onclick="toggleAnswer('p1')">Reveal Physics</button>
+<div id="p1" class="answer">
+Antimatter particles have opposite quantum numbers, not just opposite charge.
+</div>
+</div>
+
+<div class="field">
+<strong>Misconception:</strong> “Forces are caused by physical contact.”<br>
+<button onclick="toggleAnswer('p2')">Reveal Physics</button>
+<div id="p2" class="answer">
+Forces are mediated by exchange particles (bosons) in quantum field theory.
+</div>
+</div>
+</div>
+
+<footer>
+Interactive IB Physics Revision • SL & HL
+</footer>
+
+</body>
+</html>
