@@ -187,6 +187,19 @@
       font-size:.92rem;
       line-height:1.35;
     }
+  
+    .tfBadge{
+      display:inline-block;
+      padding:3px 8px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:900;
+      border:1px solid transparent;
+      margin-left:6px;
+    }
+    .tfTrue{ background:#dcfce7; border-color:#86efac; color:#14532d; }
+    .tfFalse{ background:#ffe4e6; border-color:#fda4af; color:#9f1239; }
+
   </style>
   <script>
     function toggle(id){
@@ -248,7 +261,8 @@
       <a href="#magnetic">Magnetic</a>
       <a href="#nuclear">Nuclear</a>
       <a href="#particle">Particle</a>
-    </div>
+    
+      <a href="#truefalse">TRUE/FALSE Traps</a></div>
 
     <!-- SIMPLE HARMONIC MOTION -->
     <div class="section" id="shm">
@@ -1169,15 +1183,612 @@
       </div>
     </div>
 
-    <div class="footer">
-      <b>Teacher tip:</b> Reveal <b>Why</b> first → <b>Correct physics</b> → <b>Exam question</b> (2-4 min). 
-      <b>Unit Analysis</b> (green) builds dimensional reasoning skills.
+    
+    <!-- TRUE/FALSE TRAPS -->
+    <div class="section" id="truefalse">
+      <h2><span class="badgeField">Topic</span> TRUE/FALSE Diagnostic Traps</h2>
+      <div class="grid">
+
+        <div class="card" data-level="SL" style="background:#fafafa;">
+          <div class="cardTop" style="margin-bottom:0;">
+            <div class="misconception" style="font-weight:900;">SHM &amp; Oscillations</div>
+            <span class="tag sl">Set</span>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“At maximum displacement in SHM, the object has zero velocity but maximum acceleration.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf1verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf1explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf1verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf1explain">
+            <strong>Why:</strong> At x = ±A, v = 0 but a = −ω²x so |a| is maximum.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“If the amplitude of a spring oscillator doubles, the maximum restoring force doubles but the period is unchanged.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf2verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf2explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf2verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf2explain">
+            <strong>Why:</strong> F_max = kA so doubling A doubles F_max. But T = 2π√(m/k) has no A.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“A pendulum released from 45° still performs SHM, just with larger forces.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf3verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf3explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf3verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf3explain">
+            <strong>Why:</strong> Pendulum SHM relies on sinθ ≈ θ (small-angle). At 45° the restoring torque is not proportional to displacement; period depends on amplitude.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“At the equilibrium position of SHM, acceleration is zero but net force may be non-zero.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf4verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf4explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf4verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf4explain">
+            <strong>Why:</strong> In SHM, a = −ω²x. At x = 0 ⇒ a = 0 ⇒ net force = ma = 0.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Damping reduces amplitude but does not change the frequency at all.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf5verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf5explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf5verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf5explain">
+            <strong>Why:</strong> For light damping the frequency is close to ω₀, but ω_d = √(ω₀² − (b/2m)²) is slightly smaller.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL" style="background:#fafafa;">
+          <div class="cardTop" style="margin-bottom:0;">
+            <div class="misconception" style="font-weight:900;">Waves</div>
+            <span class="tag sl">Set</span>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Two waves of equal amplitude interfering constructively produce a wave of double energy.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf6verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf6explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf6verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf6explain">
+            <strong>Why:</strong> Constructive interference doubles amplitude, not energy. Since energy/intensity ∝ A², energy becomes 4×.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“A louder sound wave carries more energy but travels at the same speed as a quieter one in the same air.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf7verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf7explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf7verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf7explain">
+            <strong>Why:</strong> In a given medium (at fixed conditions), wave speed is set by the medium. Greater amplitude → greater intensity/energy transfer, not higher speed.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“If frequency stays constant but wavelength increases, the wave must have entered a faster medium.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf8verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf8explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf8verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf8explain">
+            <strong>Why:</strong> v = fλ. If f is constant and λ increases, v must increase.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“In a longitudinal wave, particle motion is perpendicular to wave travel.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf9verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf9explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf9verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf9explain">
+            <strong>Why:</strong> Longitudinal waves have particle oscillations parallel to the direction of propagation.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Energy transfer in a wave requires a net movement of particles in the direction of travel.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf10verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf10explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf10verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf10explain">
+            <strong>Why:</strong> Particles oscillate about equilibrium with no net displacement; energy is transferred through the medium.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL" style="background:#fafafa;">
+          <div class="cardTop" style="margin-bottom:0;">
+            <div class="misconception" style="font-weight:900;">Wave Nature of Light</div>
+            <span class="tag sl">Set</span>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“When light enters glass, photon energy decreases because speed decreases.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf11verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf11explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf11verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf11explain">
+            <strong>Why:</strong> Photon energy E = hf. At a boundary, frequency stays the same; speed and wavelength change in the medium.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Interference fringes form because light waves collide and bounce off each other.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf12verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf12explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf12verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf12explain">
+            <strong>Why:</strong> Fringes arise from superposition and phase difference (path difference), not waves “bouncing” off each other.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“All EM waves travel at the same speed in vacuum regardless of wavelength.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf13verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf13explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf13verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf13explain">
+            <strong>Why:</strong> In vacuum, all EM radiation travels at c ≈ 3.00×10⁸ m·s⁻¹.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Refraction occurs because light’s direction changes continuously while inside the medium.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf14verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf14explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf14verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf14explain">
+            <strong>Why:</strong> In a uniform medium light travels straight; the direction change occurs at the boundary where speed changes.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“White light can be considered a superposition of many frequencies.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf15verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf15explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf15verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf15explain">
+            <strong>Why:</strong> White light contains a range of wavelengths/frequencies; prisms separate them via dispersion.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL" style="background:#fafafa;">
+          <div class="cardTop" style="margin-bottom:0;">
+            <div class="misconception" style="font-weight:900;">Gravitational</div>
+            <span class="tag sl">Set</span>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“An astronaut in orbit has zero gravitational force acting on them.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf16verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf16explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf16verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf16explain">
+            <strong>Why:</strong> Gravity is still significant in low Earth orbit; astronauts feel weightless because they are in free fall.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“A satellite in circular orbit has constant speed but changing velocity.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf17verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf17explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf17verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf17explain">
+            <strong>Why:</strong> Velocity is a vector: direction changes continuously, so there is centripetal acceleration even at constant speed.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Gravitational field strength and gravitational potential have the same units.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf18verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf18explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf18verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf18explain">
+            <strong>Why:</strong> Field strength g: N·kg⁻¹ (m·s⁻²). Potential: J·kg⁻¹ (m²·s⁻²).
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Escape speed depends on the mass of the object escaping.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf19verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf19explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf19verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf19explain">
+            <strong>Why:</strong> v_e = √(2GM/R): depends on the planet/star; the escaping object’s mass cancels.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL" style="background:#fafafa;">
+          <div class="cardTop" style="margin-bottom:0;">
+            <div class="misconception" style="font-weight:900;">Electric Fields</div>
+            <span class="tag sl">Set</span>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Electric field strength is defined independently of any test charge.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf20verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf20explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf20verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf20explain">
+            <strong>Why:</strong> E is defined as force per unit positive test charge, but the field exists whether or not a test charge is present.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“A negative charge released from rest in a uniform electric field moves opposite to the field lines.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf21verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf21explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf21verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf21explain">
+            <strong>Why:</strong> Field lines indicate force on a positive charge; for q &lt; 0, F = qE is opposite to E.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Electric potential can be negative, but electric potential energy cannot.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf22verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf22explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf22verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf22explain">
+            <strong>Why:</strong> U = qV can be negative depending on sign conventions and the sign of q.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Between parallel plates, electric field strength is zero midway between the plates.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf23verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf23explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf23verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf23explain">
+            <strong>Why:</strong> Between large parallel plates (ignoring edge effects), the field is approximately uniform: E ≈ V/d everywhere.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL" style="background:#fafafa;">
+          <div class="cardTop" style="margin-bottom:0;">
+            <div class="misconception" style="font-weight:900;">Magnetic</div>
+            <span class="tag sl">Set</span>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“A stationary charged particle in a magnetic field can have magnetic potential energy.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf24verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf24explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf24verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf24explain">
+            <strong>Why:</strong> Magnetic force on a charge is F = qvB sinθ. If v = 0, no magnetic force acts.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Magnetic force can change the direction of velocity but not the speed.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf25verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf25explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf25verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf25explain">
+            <strong>Why:</strong> Magnetic force is perpendicular to velocity, so it does no work: changes direction but not kinetic energy (ideal case).
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Magnetic field lines never intersect because that would imply two directions of force.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf26verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf26explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf26verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf26explain">
+            <strong>Why:</strong> The field at a point has a single direction; intersecting lines would imply two directions at one point.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL" style="background:#fafafa;">
+          <div class="cardTop" style="margin-bottom:0;">
+            <div class="misconception" style="font-weight:900;">Nuclear / Particle</div>
+            <span class="tag sl">Set</span>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Half-life is the time for all nuclei in a sample to decay.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf27verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf27explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf27verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf27explain">
+            <strong>Why:</strong> Half-life is the time for the number of undecayed nuclei (or activity) to fall to half its initial value.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“In beta⁻ decay, a neutron turns into a proton, electron, and antineutrino.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf28verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf28explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf28verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfTrue">TRUE — Correct Conception</span>
+          </div>
+          <div class="panel" id="tf28explain">
+            <strong>Why:</strong> β⁻ decay: n → p + e⁻ + ν̄_e (conserves charge and lepton number).
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Ionising radiation is dangerous because it heats tissue.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf29verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf29explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf29verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf29explain">
+            <strong>Why:</strong> Its key danger is ionisation: it can break chemical bonds and damage DNA.
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">“Increasing intensity of light can eject electrons in the photoelectric effect even if frequency is below threshold.”</div>
+            <span class="tag sl">TF</span>
+          </div>
+          <div class="btnRow">
+            <button onclick="toggle('tf30verdict')">Check</button>
+            <button class="secondary" onclick="toggle('tf30explain')">Explain</button>
+          </div>
+          <div class="panel" id="tf30verdict">
+            <strong>Verdict:</strong>
+            <span class="tfBadge tfFalse">FALSE — Misconception</span>
+          </div>
+          <div class="panel" id="tf30explain">
+            <strong>Why:</strong> Below threshold frequency, hf is insufficient regardless of intensity.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+<div class="footer">
       <br><br>
       <b>Topics:</b> SHM, Waves, Wave Nature of Light, Gravitational, Electric, Capacitance, DC Circuits, Magnetic, Nuclear, Particle
     </div>
   </div>
 </body>
 </html>
+
 
 
 
