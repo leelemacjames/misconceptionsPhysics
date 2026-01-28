@@ -10,8 +10,11 @@ h1 {margin:0;}
 .section {margin:20px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
 .section h2 {margin:0; padding:15px; background:#2e5cb8; color:white; border-radius:8px 8px 0 0;}
 .field {border-top:1px solid #ddd; padding:15px;}
-button {background:#ffb703; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; font-weight:bold;}
+button {background:#ffb703; border:none; padding:6px 10px; border-radius:5px; cursor:pointer; font-weight:bold; margin-top:5px;}
 .answer {display:none; margin-top:10px; padding:10px; background:#eef2f7; border-left:4px solid #2e5cb8;}
+.tag {display:inline-block; padding:2px 6px; border-radius:4px; font-size:0.8em; margin-left:8px;}
+.sl {background:#8ecae6;}
+.hl {background:#ffafcc;}
 footer {text-align:center; padding:15px; font-size:0.9em; color:#555;}
 </style>
 <script>
@@ -31,106 +34,85 @@ function toggleAnswer(id){
 <div class="section">
 <h2>Gravitational Field</h2>
 
-<div class="field">
-<strong>Misconception:</strong> “Astronauts are weightless because there is no gravity in space.”<br>
-<button onclick="toggleAnswer('g1')">Reveal Physics</button>
-<div id="g1" class="answer">
-Gravity still acts strongly in orbit. Astronauts are in continuous free fall toward Earth, producing apparent weightlessness.
-</div>
-</div>
+<div class="field"><strong>Heavier objects fall faster</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('g1')">Reveal Physics</button>
+<div id="g1" class="answer">All objects accelerate equally in a gravitational field when air resistance is negligible.</div></div>
 
-<div class="field">
-<strong>Misconception:</strong> “Heavier objects fall faster.”<br>
-<button onclick="toggleAnswer('g2')">Reveal Physics</button>
-<div id="g2" class="answer">
-All objects accelerate at the same rate in a gravitational field when air resistance is negligible.
-</div>
-</div>
+<div class="field"><strong>No gravity in orbit</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('g2')">Reveal Physics</button>
+<div id="g2" class="answer">Gravity is still strong. Astronauts are in free fall, producing apparent weightlessness.</div></div>
+
+<div class="field"><strong>Geostationary satellites feel no gravity</strong><span class="tag hl">HL</span>
+<br><button onclick="toggleAnswer('g3')">Reveal Physics</button>
+<div id="g3" class="answer">They are in circular motion; gravity provides centripetal force.</div></div>
 </div>
 
 <div class="section">
 <h2>Electric Field</h2>
 
-<div class="field">
-<strong>Misconception:</strong> “Current is used up in a resistor.”<br>
-<button onclick="toggleAnswer('e1')">Reveal Physics</button>
-<div id="e1" class="answer">
-Charge is conserved. Current remains the same in a series circuit; energy is transferred, not charge lost.
-</div>
-</div>
+<div class="field"><strong>Current gets used up</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('e1')">Reveal Physics</button>
+<div id="e1" class="answer">Charge is conserved. Energy is transferred, not charge.</div></div>
 
-<div class="field">
-<strong>Misconception:</strong> “Voltage flows through a circuit.”<br>
-<button onclick="toggleAnswer('e2')">Reveal Physics</button>
-<div id="e2" class="answer">
-Voltage is energy per unit charge, not a substance. It is a potential difference that drives current.
-</div>
-</div>
+<div class="field"><strong>Voltage flows</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('e2')">Reveal Physics</button>
+<div id="e2" class="answer">Voltage is energy per unit charge, not something that moves.</div></div>
+
+<div class="field"><strong>Electric field lines are particle paths</strong><span class="tag hl">HL</span>
+<br><button onclick="toggleAnswer('e3')">Reveal Physics</button>
+<div id="e3" class="answer">Field lines represent direction of force, not trajectories.</div></div>
 </div>
 
 <div class="section">
 <h2>Magnetic Field</h2>
 
-<div class="field">
-<strong>Misconception:</strong> “Magnets attract all metals.”<br>
-<button onclick="toggleAnswer('m1')">Reveal Physics</button>
-<div id="m1" class="answer">
-Only ferromagnetic materials (iron, cobalt, nickel) show strong attraction.
-</div>
-</div>
+<div class="field"><strong>Magnets attract all metals</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('m1')">Reveal Physics</button>
+<div id="m1" class="answer">Only ferromagnetic materials (Fe, Co, Ni).</div></div>
 
-<div class="field">
-<strong>Misconception:</strong> “A stationary charge in a magnetic field feels a force.”<br>
-<button onclick="toggleAnswer('m2')">Reveal Physics</button>
-<div id="m2" class="answer">
-Magnetic force acts only on moving charges: F = qvB sinθ.
-</div>
-</div>
+<div class="field"><strong>Stationary charge feels magnetic force</strong><span class="tag hl">HL</span>
+<br><button onclick="toggleAnswer('m2')">Reveal Physics</button>
+<div id="m2" class="answer">Magnetic force requires motion: F = qvB sinθ.</div></div>
+
+<div class="field"><strong>Magnetic poles exist alone</strong><span class="tag hl">HL</span>
+<br><button onclick="toggleAnswer('m3')">Reveal Physics</button>
+<div id="m3" class="answer">Magnetic monopoles have not been observed; poles always occur in pairs.</div></div>
 </div>
 
 <div class="section">
 <h2>Nuclear Field</h2>
 
-<div class="field">
-<strong>Misconception:</strong> “Mass is conserved in nuclear reactions.”<br>
-<button onclick="toggleAnswer('n1')">Reveal Physics</button>
-<div id="n1" class="answer">
-Mass converts to energy via E = mc². Mass defect equals binding energy.
-</div>
-</div>
+<div class="field"><strong>Mass is conserved in nuclear reactions</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('n1')">Reveal Physics</button>
+<div id="n1" class="answer">Mass converts to energy via E=mc².</div></div>
 
-<div class="field">
-<strong>Misconception:</strong> “Fusion always releases more energy than fission.”<br>
-<button onclick="toggleAnswer('n2')">Reveal Physics</button>
-<div id="n2" class="answer">
-Energy release depends on binding energy per nucleon. Light nuclei fuse; heavy nuclei fission to move toward iron peak.
-</div>
-</div>
+<div class="field"><strong>Fusion always releases more energy</strong><span class="tag hl">HL</span>
+<br><button onclick="toggleAnswer('n2')">Reveal Physics</button>
+<div id="n2" class="answer">Energy release depends on binding energy per nucleon curve.</div></div>
+
+<div class="field"><strong>Half-life means half atoms decay each step</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('n3')">Reveal Physics</button>
+<div id="n3" class="answer">Decay is probabilistic; half-life is statistical.</div></div>
 </div>
 
 <div class="section">
 <h2>Particle Physics Field</h2>
 
-<div class="field">
-<strong>Misconception:</strong> “Antimatter is just negative matter.”<br>
-<button onclick="toggleAnswer('p1')">Reveal Physics</button>
-<div id="p1" class="answer">
-Antimatter particles have opposite quantum numbers, not just opposite charge.
-</div>
+<div class="field"><strong>Antimatter is negative matter</strong><span class="tag hl">HL</span>
+<br><button onclick="toggleAnswer('p1')">Reveal Physics</button>
+<div id="p1" class="answer">Antimatter has opposite quantum numbers.</div></div>
+
+<div class="field"><strong>Forces need contact</strong><span class="tag sl">SL</span>
+<br><button onclick="toggleAnswer('p2')">Reveal Physics</button>
+<div id="p2" class="answer">Forces are mediated by exchange particles.</div></div>
+
+<div class="field"><strong>Neutrinos have no mass</strong><span class="tag hl">HL</span>
+<br><button onclick="toggleAnswer('p3')">Reveal Physics</button>
+<div id="p3" class="answer">Neutrino oscillations show they have small mass.</div></div>
 </div>
 
-<div class="field">
-<strong>Misconception:</strong> “Forces are caused by physical contact.”<br>
-<button onclick="toggleAnswer('p2')">Reveal Physics</button>
-<div id="p2" class="answer">
-Forces are mediated by exchange particles (bosons) in quantum field theory.
-</div>
-</div>
-</div>
-
-<footer>
-Interactive IB Physics Revision • SL & HL
-</footer>
+<footer>Interactive IB Physics Revision • Misconceptions by Field</footer>
 
 </body>
 </html>
+
