@@ -740,26 +740,1186 @@
           </div>
           <div class="panel" id="p5why"><strong>Why:</strong> Students treat “conservation” as one rule (energy) instead of a bundle of independent constraints.</div>
           <div class="panel" id="p5phys"><strong>Correct:</strong> Particle reactions must satisfy multiple conservation laws (charge, baryon number, lepton number, energy, momentum). Violating any one makes the reaction forbidden.</div>
-          <div class="panel" id="p5exam">
-            <div class="q"><strong>Exam-style:</strong> Determine whether the reaction p → n + e⁺ is possible. Justify using at least two conservation laws.</div>
-            <button class="secondary" onclick="toggleMark('p5mark')">Toggle markscheme hints</button>
-            <div class="mark" id="p5mark"><strong>Hints:</strong> charge: +1 → 0 + (+1) ok; lepton number: 0 → 0 + (−1) not ok unless include νe; also energy/mass considerations.</div>
+          <di<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IB Physics – Misconceptions by Field (SL/HL)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body{
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color:#1f2937;
+    }
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+      overflow:hidden;
+    }
+    header{
+      padding: 28px 28px 18px 28px;
+      background: linear-gradient(135deg, #1f3c88 0%, #2e5cb8 100%);
+      color:#fff;
+    }
+    header h1{ font-size: 1.6rem; margin-bottom: 6px; }
+    header p{ opacity: .95; line-height: 1.35; }
+    .controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding: 14px 28px;
+      background: #f6f7fb;
+      border-bottom:1px solid #e5e7eb;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .leftControls{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid #e5e7eb;
+      background:#fff;
+      font-size:.92rem;
+    }
+    .pill input{ transform: translateY(1px); }
+    .search{
+      display:flex; gap:8px; align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid #e5e7eb;
+      background:#fff;
+      min-width: 260px;
+    }
+    .search input{
+      border:none; outline:none; width:100%;
+      font-size:.95rem;
+    }
+    .nav{
+      display:flex; flex-wrap:wrap; gap:8px;
+      padding: 12px 28px;
+      border-bottom:1px solid #e5e7eb;
+      background:#fff;
+    }
+    .nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius: 10px;
+      border:1px solid #e5e7eb;
+      color:#1f2937;
+      background:#fafafa;
+      font-weight:600;
+      font-size:.92rem;
+    }
+    .nav a:hover{ background:#f0f3ff; border-color:#c7d2fe; }
+    .section{ padding: 18px 28px 26px 28px; }
+    .section h2{
+      margin: 12px 0 14px 0;
+      font-size: 1.25rem;
+      color:#0f172a;
+      display:flex; align-items:center; gap:10px;
+    }
+    .badgeField{
+      font-size:.78rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background:#eef2ff;
+      border:1px solid #c7d2fe;
+      color:#3730a3;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+    }
+    .card{
+      border:1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 14px;
+      background:#fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .cardTop{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+      margin-bottom:10px;
+    }
+    .misconception{
+      font-weight:800;
+      line-height:1.25;
+      color:#111827;
+    }
+    .tag{
+      display:inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size:.75rem;
+      font-weight:800;
+      border:1px solid #e5e7eb;
+      white-space:nowrap;
+    }
+    .sl{ background:#dbeafe; border-color:#93c5fd; color:#1e3a8a; }
+    .hl{ background:#ffe4e6; border-color:#fda4af; color:#9f1239; }
+    .btnRow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    button{
+      border:none;
+      cursor:pointer;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-weight:800;
+      font-size:.86rem;
+      background:#ffb703;
+      color:#111827;
+    }
+    button.secondary{ background:#e5e7eb; }
+    button.tertiary{ background:#c7d2fe; }
+    button.unitBtn{ background:#6ee7b7; }
+    button:hover{ filter: brightness(0.97); }
+    .panel{
+      display:none;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+      line-height:1.35;
+      font-size:.95rem;
+    }
+    .panel strong{ color:#0f172a; }
+    .panel .q{
+      background:#fff;
+      border:1px dashed #cbd5e1;
+      padding:10px 12px;
+      border-radius:12px;
+      margin-top:8px;
+    }
+    .panel .mark{
+      margin-top:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:#eef2ff;
+      border:1px solid #c7d2fe;
+      display:none;
+    }
+    .panel .unitQ{
+      background:#ecfdf5;
+      border:1px dashed #6ee7b7;
+      padding:10px 12px;
+      border-radius:12px;
+      margin-top:8px;
+    }
+    .footer{
+      padding: 18px 28px 24px 28px;
+      border-top: 1px solid #e5e7eb;
+      background:#fafafa;
+      color:#4b5563;
+      font-size:.92rem;
+      line-height:1.35;
+    }
+  </style>
+  <script>
+    function toggle(id){
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+    function toggleMark(id){
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+    function applyFilters(){
+      const showSL = document.getElementById("filterSL").checked;
+      const showHL = document.getElementById("filterHL").checked;
+      const q = (document.getElementById("searchBox").value || "").toLowerCase();
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        const level = card.getAttribute("data-level");
+        const text = card.innerText.toLowerCase();
+        const levelOK = (level === "SL" && showSL) || (level === "HL" && showHL);
+        const searchOK = (q.trim() === "") || text.includes(q.trim());
+        card.style.display = (levelOK && searchOK) ? "block" : "none";
+      });
+    }
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("filterSL").addEventListener("change", applyFilters);
+      document.getElementById("filterHL").addEventListener("change", applyFilters);
+      document.getElementById("searchBox").addEventListener("input", applyFilters);
+      applyFilters();
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>IB Physics – Tricky Misconceptions (organised by topic)</h1>
+      <p>
+        Reveal <b>Why</b> (intuition trap), then <b>Correct Physics</b>, then set the <b>Exam-style question</b>.
+        <b>Unit Analysis</b> (green) checks dimensional reasoning.
+      </p>
+    </header>
+    <div class="controls">
+      <div class="leftControls">
+        <label class="pill"><input id="filterSL" type="checkbox" checked> Show SL</label>
+        <label class="pill"><input id="filterHL" type="checkbox" checked> Show HL</label>
+      </div>
+      <div class="search">
+        <span style="font-weight:800; opacity:.8;">Search</span>
+        <input id="searchBox" type="text" placeholder="Find a misconception…" />
+      </div>
+    </div>
+    <div class="nav">
+      <a href="#shm">SHM</a>
+      <a href="#waves">Waves</a>
+      <a href="#wavelight">Light Waves</a>
+      <a href="#grav">Gravitational</a>
+      <a href="#electric">Electric</a>
+      <a href="#capacitance">Capacitance</a>
+      <a href="#dc">DC Circuits</a>
+      <a href="#magnetic">Magnetic</a>
+      <a href="#nuclear">Nuclear</a>
+      <a href="#particle">Particle</a>
+    </div>
+
+    <!-- SIMPLE HARMONIC MOTION -->
+    <div class="section" id="shm">
+      <h2><span class="badgeField">Topic</span> Simple Harmonic Motion</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"The period of oscillation depends on the amplitude."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm1why')">Why students think this</button>
+            <button onclick="toggle('shm1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm1exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('shm1unit')">Unit check</button>
+          </div>
+          <div class="panel" id="shm1why"><strong>Why:</strong> "Bigger swing = longer journey = more time."</div>
+          <div class="panel" id="shm1phys"><strong>Correct:</strong> For ideal SHM, period T depends only on system parameters: T = 2π√(m/k) for spring, T = 2π√(L/g) for pendulum. Larger amplitude increases max velocity proportionally, keeping T constant.</div>
+          <div class="panel" id="shm1exam">
+            <div class="q"><strong>Exam-style:</strong> A mass-spring system oscillates with amplitude 5.0 cm. The amplitude is doubled. Explain why the period remains unchanged.</div>
+            <button class="secondary" onclick="toggleMark('shm1mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm1mark"><strong>Hints:</strong> T = 2π√(m/k); no A in formula; restoring force increases with displacement so max speed scales with amplitude.</div>
+          </div>
+          <div class="panel" id="shm1unit">
+            <div class="unitQ"><strong>Unit Analysis:</strong> For T = 2π√(L/g), verify the units. Does √(L/g) give seconds?</div>
+            <button class="secondary" onclick="toggleMark('shm1unitmark')">Toggle answer</button>
+            <div class="mark" id="shm1unitmark"><strong>Answer:</strong> L in m, g in m·s⁻². L/g = m/(m·s⁻²) = s². √s² = s ✓</div>
           </div>
         </div>
 
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"The restoring force is constant at all points in the oscillation."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm2why')">Why students think this</button>
+            <button onclick="toggle('shm2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="shm2why"><strong>Why:</strong> Confusing "constant k" (spring constant) with "constant force."</div>
+          <div class="panel" id="shm2phys"><strong>Correct:</strong> SHM defining feature: restoring force is <em>proportional</em> to displacement: F = −kx. Maximum force at maximum displacement; zero force at equilibrium.</div>
+          <div class="panel" id="shm2exam">
+            <div class="q"><strong>Exam-style:</strong> Sketch a graph of restoring force vs displacement for SHM. Explain why it's a straight line through the origin.</div>
+            <button class="secondary" onclick="toggleMark('shm2mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm2mark"><strong>Hints:</strong> F = −kx; negative gradient; passes through origin; gradient = −k.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"The heavier a pendulum bob, the shorter its period."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm3why')">Why students think this</button>
+            <button onclick="toggle('shm3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm3exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('shm3unit')">Unit check</button>
+          </div>
+          <div class="panel" id="shm3why"><strong>Why:</strong> "Heavier things fall faster" intuition from everyday experience.</div>
+          <div class="panel" id="shm3phys"><strong>Correct:</strong> T = 2π√(L/g). Mass doesn't appear! Gravitational restoring force and inertia both scale with m, cancelling out.</div>
+          <div class="panel" id="shm3exam">
+            <div class="q"><strong>Exam-style:</strong> Derive the period expression for a simple pendulum and explain why mass does not appear.</div>
+            <button class="secondary" onclick="toggleMark('shm3mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm3mark"><strong>Hints:</strong> Restoring force = mg sin θ ≈ mgθ; acceleration a = −gx/L; compare with a = −ω²x.</div>
+          </div>
+          <div class="panel" id="shm3unit">
+            <div class="unitQ"><strong>Unit Analysis:</strong> A student writes T = 2π√(g/L). Use units to show this must be wrong.</div>
+            <button class="secondary" onclick="toggleMark('shm3unitmark')">Toggle answer</button>
+            <div class="mark" id="shm3unitmark"><strong>Answer:</strong> g/L = (m·s⁻²)/m = s⁻². √s⁻² = s⁻¹ (frequency!), not s. Should be √(L/g).</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="HL">
+          <div class="cardTop">
+            <div class="misconception">"All pendulum motion is perfect SHM, for any initial angle."</div>
+            <span class="tag hl">HL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm4why')">Why students think this</button>
+            <button onclick="toggle('shm4phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm4exam')">Exam question</button>
+          </div>
+          <div class="panel" id="shm4why"><strong>Why:</strong> Textbooks say "pendulum = SHM" without emphasising small-angle approximation.</div>
+          <div class="panel" id="shm4phys"><strong>Correct:</strong> True SHM requires F ∝ x. For pendulum, F ∝ sin θ. Only for small θ (<10°) is sin θ ≈ θ, giving approximate SHM.</div>
+          <div class="panel" id="shm4exam">
+            <div class="q"><strong>Exam-style:</strong> Explain why a pendulum released from 60° does not exhibit true SHM.</div>
+            <button class="secondary" onclick="toggleMark('shm4mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm4mark"><strong>Hints:</strong> sin 60° ≠ 60° (rad); restoring force not ∝ displacement; period depends on amplitude.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Harmonic oscillators go forever (perpetual motion)."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm5why')">Why students think this</button>
+            <button onclick="toggle('shm5phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm5exam')">Exam question</button>
+          </div>
+          <div class="panel" id="shm5why"><strong>Why:</strong> SHM equations have no damping term; "ideal" taken as "real."</div>
+          <div class="panel" id="shm5phys"><strong>Correct:</strong> Real oscillators experience damping. Energy converts to thermal energy. Ideal SHM is a model; real oscillations decay.</div>
+          <div class="panel" id="shm5exam">
+            <div class="q"><strong>Exam-style:</strong> Sketch an x-t graph for light damping. How does amplitude change?</div>
+            <button class="secondary" onclick="toggleMark('shm5mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm5mark"><strong>Hints:</strong> Exponential decay envelope; amplitude decreases; period approximately constant.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"A pendulum accelerates through the lowest point of its swing."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm6why')">Why students think this</button>
+            <button onclick="toggle('shm6phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm6exam')">Exam question</button>
+          </div>
+          <div class="panel" id="shm6why"><strong>Why:</strong> "It's moving fastest there, so it must be accelerating."</div>
+          <div class="panel" id="shm6phys"><strong>Correct:</strong> At lowest point: displacement = 0, restoring force = 0, tangential acceleration = 0. Max speed but only centripetal acceleration (toward pivot).</div>
+          <div class="panel" id="shm6exam">
+            <div class="q"><strong>Exam-style:</strong> State the direction and magnitude of (a) velocity (b) acceleration at the lowest point.</div>
+            <button class="secondary" onclick="toggleMark('shm6mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm6mark"><strong>Hints:</strong> (a) horizontal, max (b) vertical/upward (centripetal), v²/L; tangential = 0.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Amplitude is measured peak-to-peak."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm7why')">Why students think this</button>
+            <button onclick="toggle('shm7phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm7exam')">Exam question</button>
+          </div>
+          <div class="panel" id="shm7why"><strong>Why:</strong> Oscilloscope settings often show peak-to-peak.</div>
+          <div class="panel" id="shm7phys"><strong>Correct:</strong> Amplitude A = max displacement from equilibrium (centre to peak). Peak-to-peak = 2A.</div>
+          <div class="panel" id="shm7exam">
+            <div class="q"><strong>Exam-style:</strong> Peak-to-peak displacement is 8.0 cm. State the amplitude and write x = A cos(ωt).</div>
+            <button class="secondary" onclick="toggleMark('shm7mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm7mark"><strong>Hints:</strong> A = 4.0 cm; x = 0.040 cos(ωt) m.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Acceleration is zero at the endpoints of pendulum motion."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('shm8why')">Why students think this</button>
+            <button onclick="toggle('shm8phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('shm8exam')">Exam question</button>
+          </div>
+          <div class="panel" id="shm8why"><strong>Why:</strong> "It stops there, so no motion, so no acceleration."</div>
+          <div class="panel" id="shm8phys"><strong>Correct:</strong> At max displacement: velocity = 0 but acceleration is maximum! a = −ω²x, so max |a| when max |x|.</div>
+          <div class="panel" id="shm8exam">
+            <div class="q"><strong>Exam-style:</strong> Sketch x, v, a vs t for SHM. Where is v = 0? What's a there?</div>
+            <button class="secondary" onclick="toggleMark('shm8mark')">Toggle markscheme hints</button>
+            <div class="mark" id="shm8mark"><strong>Hints:</strong> v = 0 at x = ±A; acceleration = ∓ω²A (max magnitude).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION TO WAVES -->
+    <div class="section" id="waves">
+      <h2><span class="badgeField">Topic</span> Introduction to Waves</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Waves transport matter."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wav1why')">Why students think this</button>
+            <button onclick="toggle('wav1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wav1exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wav1why"><strong>Why:</strong> Ocean waves push things to shore; "movement" suggests matter moves with wave.</div>
+          <div class="panel" id="wav1phys"><strong>Correct:</strong> Waves transport <em>energy</em>, not matter. Medium particles oscillate about fixed positions. A cork bobs up and down but doesn't travel with the wave.</div>
+          <div class="panel" id="wav1exam">
+            <div class="q"><strong>Exam-style:</strong> Describe motion of a point on a rope as a wave passes. What is transferred?</div>
+            <button class="secondary" onclick="toggleMark('wav1mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wav1mark"><strong>Hints:</strong> Point oscillates ⊥ to wave direction; energy transferred; no net matter displacement.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"There must be a medium for a wave to travel through."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wav2why')">Why students think this</button>
+            <button onclick="toggle('wav2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wav2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wav2why"><strong>Why:</strong> Most familiar waves (sound, water) need media.</div>
+          <div class="panel" id="wav2phys"><strong>Correct:</strong> Mechanical waves need media. EM waves don't – they're self-propagating E and B field oscillations that travel through vacuum.</div>
+          <div class="panel" id="wav2exam">
+            <div class="q"><strong>Exam-style:</strong> Why can starlight reach Earth through vacuum but sound cannot?</div>
+            <button class="secondary" onclick="toggleMark('wav2mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wav2mark"><strong>Hints:</strong> Light is EM (no medium needed); sound is mechanical (needs particles).</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Waves do not have energy."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wav3why')">Why students think this</button>
+            <button onclick="toggle('wav3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wav3exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('wav3unit')">Unit check</button>
+          </div>
+          <div class="panel" id="wav3why"><strong>Why:</strong> Energy associated with "things." Waves seem like "patterns."</div>
+          <div class="panel" id="wav3phys"><strong>Correct:</strong> Waves carry energy: sound vibrates eardrums; light warms surfaces; tsunamis are destructive.</div>
+          <div class="panel" id="wav3exam">
+            <div class="q"><strong>Exam-style:</strong> A 5.0 mW laser runs for 2.0 min. Calculate energy delivered.</div>
+            <button class="secondary" onclick="toggleMark('wav3mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wav3mark"><strong>Hints:</strong> E = Pt = 5.0×10⁻³ × 120 = 0.60 J.</div>
+          </div>
+          <div class="panel" id="wav3unit">
+            <div class="unitQ"><strong>Unit Analysis:</strong> Intensity I = P/A. What are SI units of intensity?</div>
+            <button class="secondary" onclick="toggleMark('wav3unitmark')">Toggle answer</button>
+            <div class="mark" id="wav3unitmark"><strong>Answer:</strong> W/m² = W·m⁻² ✓</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Frequency is connected to loudness."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wav4why')">Why students think this</button>
+            <button onclick="toggle('wav4phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wav4exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wav4why"><strong>Why:</strong> High-pitched sounds feel more piercing.</div>
+          <div class="panel" id="wav4phys"><strong>Correct:</strong> Frequency → pitch; amplitude → loudness (I ∝ A²). A bass note can be louder than a high note.</div>
+          <div class="panel" id="wav4exam">
+            <div class="q"><strong>Exam-style:</strong> Same frequency, A doubles amplitude of B. Compare pitch and loudness.</div>
+            <button class="secondary" onclick="toggleMark('wav4mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wav4mark"><strong>Hints:</strong> Same pitch; A is louder (I ∝ A², so 4× intensity).</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Big waves travel faster than small waves in the same medium."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wav5why')">Why students think this</button>
+            <button onclick="toggle('wav5phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wav5exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('wav5unit')">Unit check</button>
+          </div>
+          <div class="panel" id="wav5why"><strong>Why:</strong> Bigger = more powerful, so should travel faster.</div>
+          <div class="panel" id="wav5phys"><strong>Correct:</strong> Wave speed depends on medium properties, not amplitude. Sound in air: all amplitudes travel at ~343 m/s.</div>
+          <div class="panel" id="wav5exam">
+            <div class="q"><strong>Exam-style:</strong> Two speakers, different loudness, same f. Why do sounds arrive simultaneously?</div>
+            <button class="secondary" onclick="toggleMark('wav5mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wav5mark"><strong>Hints:</strong> Speed set by medium; amplitude affects energy, not speed.</div>
+          </div>
+          <div class="panel" id="wav5unit">
+            <div class="unitQ"><strong>Unit Analysis:</strong> v = √(γP/ρ). Verify this gives m/s.</div>
+            <button class="secondary" onclick="toggleMark('wav5unitmark')">Toggle answer</button>
+            <div class="mark" id="wav5unitmark"><strong>Answer:</strong> P/ρ = (kg·m⁻¹·s⁻²)/(kg·m⁻³) = m²·s⁻². √ = m·s⁻¹ ✓</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Different colours of light are different types of waves."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wav6why')">Why students think this</button>
+            <button onclick="toggle('wav6phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wav6exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wav6why"><strong>Why:</strong> Red and blue look completely different.</div>
+          <div class="panel" id="wav6phys"><strong>Correct:</strong> All visible light is EM radiation – same type. Colours differ only in frequency/wavelength.</div>
+          <div class="panel" id="wav6exam">
+            <div class="q"><strong>Exam-style:</strong> Red: 700 nm, blue: 450 nm. Calculate frequencies. What determines colour?</div>
+            <button class="secondary" onclick="toggleMark('wav6mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wav6mark"><strong>Hints:</strong> f = c/λ; red ≈ 4.3×10¹⁴ Hz, blue ≈ 6.7×10¹⁴ Hz; frequency → colour.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Pitch is related to intensity."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wav7why')">Why students think this</button>
+            <button onclick="toggle('wav7phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wav7exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wav7why"><strong>Why:</strong> "High" pitch and "high" volume both use "high."</div>
+          <div class="panel" id="wav7phys"><strong>Correct:</strong> Pitch ↔ frequency; loudness ↔ intensity. They're independent.</div>
+          <div class="panel" id="wav7exam">
+            <div class="q"><strong>Exam-style:</strong> Tuning fork 256 Hz and whistle 2048 Hz at same intensity. Compare pitch and loudness.</div>
+            <button class="secondary" onclick="toggleMark('wav7mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wav7mark"><strong>Hints:</strong> Same loudness; whistle higher pitch.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WAVE NATURE OF LIGHT -->
+    <div class="section" id="wavelight">
+      <h2><span class="badgeField">Topic</span> Wave Nature of Light</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Light is a particle" / "Light is a mixture of particles and waves."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl1why')">Why students think this</button>
+            <button onclick="toggle('wnl1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl1exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wnl1why"><strong>Why:</strong> Wave-particle duality taught as "both" interpreted as literal mixture.</div>
+          <div class="panel" id="wnl1phys"><strong>Correct:</strong> Light exhibits wave behaviour (interference) and particle behaviour (photoelectric). It's a quantum entity we model differently depending on the experiment.</div>
+          <div class="panel" id="wnl1exam">
+            <div class="q"><strong>Exam-style:</strong> Describe one experiment showing wave nature and one showing particle nature of light.</div>
+            <button class="secondary" onclick="toggleMark('wnl1mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl1mark"><strong>Hints:</strong> Wave: double-slit interference. Particle: photoelectric effect (threshold f, instant emission).</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Light waves and radio waves are not the same thing."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl2why')">Why students think this</button>
+            <button onclick="toggle('wnl2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wnl2why"><strong>Why:</strong> We see light but not radio. Different names suggest different things.</div>
+          <div class="panel" id="wnl2phys"><strong>Correct:</strong> Both are EM radiation – oscillating E and B fields at c. Only differ in f/λ. EM spectrum is continuous.</div>
+          <div class="panel" id="wnl2exam">
+            <div class="q"><strong>Exam-style:</strong> Three properties same for light and radio waves. One that differs.</div>
+            <button class="secondary" onclick="toggleMark('wnl2mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl2mark"><strong>Hints:</strong> Same: speed c, transverse, can polarise. Different: frequency, wavelength, photon energy.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"The speed of light never changes."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl3why')">Why students think this</button>
+            <button onclick="toggle('wnl3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl3exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('wnl3unit')">Unit check</button>
+          </div>
+          <div class="panel" id="wnl3why"><strong>Why:</strong> "c is constant" becomes "light always at c."</div>
+          <div class="panel" id="wnl3phys"><strong>Correct:</strong> c in vacuum ≈ 3×10⁸ m/s. In media: v = c/n. In glass (n ≈ 1.5), v ≈ 2×10⁸ m/s.</div>
+          <div class="panel" id="wnl3exam">
+            <div class="q"><strong>Exam-style:</strong> Light enters glass n = 1.52. Calculate speed. What happens to wavelength?</div>
+            <button class="secondary" onclick="toggleMark('wnl3mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl3mark"><strong>Hints:</strong> v = c/n ≈ 1.97×10⁸ m/s; λ decreases (f constant).</div>
+          </div>
+          <div class="panel" id="wnl3unit">
+            <div class="unitQ"><strong>Unit Analysis:</strong> n = c/v. Show n is dimensionless.</div>
+            <button class="secondary" onclick="toggleMark('wnl3unitmark')">Toggle answer</button>
+            <div class="mark" id="wnl3unitmark"><strong>Answer:</strong> (m·s⁻¹)/(m·s⁻¹) = 1 (dimensionless) ✓</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Rays and wavefronts are the same thing."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl4why')">Why students think this</button>
+            <button onclick="toggle('wnl4phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl4exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wnl4why"><strong>Why:</strong> Both are "lines on light diagrams."</div>
+          <div class="panel" id="wnl4phys"><strong>Correct:</strong> Rays show direction of energy propagation (⊥ to wavefronts). Wavefronts connect points of equal phase.</div>
+          <div class="panel" id="wnl4exam">
+            <div class="q"><strong>Exam-style:</strong> Draw wavefronts and rays for plane wave and point source. State their relationship.</div>
+            <button class="secondary" onclick="toggleMark('wnl4mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl4mark"><strong>Hints:</strong> Rays always ⊥ to wavefronts. Plane: parallel lines/arrows. Point: circles/radial arrows.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"In refraction, the frequency (colour) of light changes."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl5why')">Why students think this</button>
+            <button onclick="toggle('wnl5phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl5exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wnl5why"><strong>Why:</strong> Prisms make rainbows, so refraction "changes" colours.</div>
+          <div class="panel" id="wnl5phys"><strong>Correct:</strong> Frequency set by source, unchanged at boundaries. v and λ change. Dispersion occurs because n depends on f.</div>
+          <div class="panel" id="wnl5exam">
+            <div class="q"><strong>Exam-style:</strong> Light f = 5×10¹⁴ Hz enters water n = 1.33. Find λ in water. Why is f unchanged?</div>
+            <button class="secondary" onclick="toggleMark('wnl5mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl5mark"><strong>Hints:</strong> v = c/n; λ = v/f ≈ 4.5×10⁻⁷ m; boundary continuity requires same f.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Refraction is the 'bending' of waves."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl6why')">Why students think this</button>
+            <button onclick="toggle('wnl6phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl6exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wnl6why"><strong>Why:</strong> "Bend" in textbooks implies curves.</div>
+          <div class="panel" id="wnl6phys"><strong>Correct:</strong> Refraction = direction change at boundary due to speed change. Wave travels straight in each medium. "Bend" describes interface angle change.</div>
+          <div class="panel" id="wnl6exam">
+            <div class="q"><strong>Exam-style:</strong> Use Huygens' principle to explain why waves bend toward normal when entering slower medium.</div>
+            <button class="secondary" onclick="toggleMark('wnl6mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl6mark"><strong>Hints:</strong> Secondary wavelets smaller in slow medium → tilted wavefront → direction toward normal.</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="HL">
+          <div class="cardTop">
+            <div class="misconception">"Double-slit shows crests and troughs – bright where crests meet."</div>
+            <span class="tag hl">HL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl7why')">Why students think this</button>
+            <button onclick="toggle('wnl7phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl7exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('wnl7unit')">Unit check</button>
+          </div>
+          <div class="panel" id="wnl7why"><strong>Why:</strong> Water wave analogies show crests as high points.</div>
+          <div class="panel" id="wnl7phys"><strong>Correct:</strong> Bright fringes where waves arrive <em>in phase</em> (path diff = nλ). Could be crest+crest OR trough+trough. Constructive superposition.</div>
+          <div class="panel" id="wnl7exam">
+            <div class="q"><strong>Exam-style:</strong> First bright fringe has path difference λ. Explain why it's bright.</div>
+            <button class="secondary" onclick="toggleMark('wnl7mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl7mark"><strong>Hints:</strong> Path diff λ → phase diff 2π (=0); waves in phase; constructive; amplitude doubles.</div>
+          </div>
+          <div class="panel" id="wnl7unit">
+            <div class="unitQ"><strong>Unit Analysis:</strong> s = λD/d. If λ in nm, D in m, d in mm, how to get s in m?</div>
+            <button class="secondary" onclick="toggleMark('wnl7unitmark')">Toggle answer</button>
+            <div class="mark" id="wnl7unitmark"><strong>Answer:</strong> Convert: λ×10⁻⁹, d×10⁻³. Then (m×m)/m = m ✓</div>
+          </div>
+        </div>
+
+        <div class="card" data-level="SL">
+          <div class="cardTop">
+            <div class="misconception">"Adding all colours of light yields black."</div>
+            <span class="tag sl">SL</span>
+          </div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('wnl8why')">Why students think this</button>
+            <button onclick="toggle('wnl8phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('wnl8exam')">Exam question</button>
+          </div>
+          <div class="panel" id="wnl8why"><strong>Why:</strong> Mixing paints (subtractive) gives dark colours.</div>
+          <div class="panel" id="wnl8phys"><strong>Correct:</strong> Additive mixing: all visible frequencies = white. Subtractive (pigments) absorbs light → darker. Light adds; pigments subtract.</div>
+          <div class="panel" id="wnl8exam">
+            <div class="q"><strong>Exam-style:</strong> Why does R+G+B light = white, but R+G+B paint = dark?</div>
+            <button class="secondary" onclick="toggleMark('wnl8mark')">Toggle markscheme hints</button>
+            <div class="mark" id="wnl8mark"><strong>Hints:</strong> Light additive (more→white). Paint subtractive (each absorbs→less light→dark).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRAVITATIONAL - from original -->
+    <div class="section" id="grav">
+      <h2><span class="badgeField">Field</span> Gravitational field</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Heavier objects fall faster."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('g1why')">Why students think this</button>
+            <button onclick="toggle('g1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('g1exam')">Exam question</button>
+          </div>
+          <div class="panel" id="g1why"><strong>Why:</strong> Air resistance (paper vs stone). "More weight = more pull" without separating F from a.</div>
+          <div class="panel" id="g1phys"><strong>Correct:</strong> All masses accelerate at g (no drag). F larger but so is inertia, so a = F/m stays same.</div>
+          <div class="panel" id="g1exam">
+            <div class="q"><strong>Exam:</strong> 0.2 kg and 2.0 kg spheres dropped in vacuum. Compare (a) accelerations (b) times to fall.</div>
+            <button class="secondary" onclick="toggleMark('g1mark')">Toggle hints</button>
+            <div class="mark" id="g1mark"><strong>Hints:</strong> Both g; same time.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"No gravity in orbit – astronauts float because gravity is gone."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('g2why')">Why students think this</button>
+            <button onclick="toggle('g2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('g2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="g2why"><strong>Why:</strong> "Weightless" = "gravity-free."</div>
+          <div class="panel" id="g2phys"><strong>Correct:</strong> Gravity strong in LEO. Continuous free fall; everything accelerates together → apparent weightlessness.</div>
+          <div class="panel" id="g2exam">
+            <div class="q"><strong>Exam:</strong> Explain why astronauts feel weightless despite gravity.</div>
+            <button class="secondary" onclick="toggleMark('g2mark')">Toggle hints</button>
+            <div class="mark" id="g2mark"><strong>Hints:</strong> Free fall; g provides centripetal a; no normal force needed.</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"Geostationary satellites have no acceleration – constant speed."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('g3why')">Why students think this</button>
+            <button onclick="toggle('g3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('g3exam')">Exam question</button>
+          </div>
+          <div class="panel" id="g3why"><strong>Why:</strong> Constant speed = no acceleration.</div>
+          <div class="panel" id="g3phys"><strong>Correct:</strong> Circular motion has centripetal a = v²/r toward centre. Direction changes.</div>
+          <div class="panel" id="g3exam">
+            <div class="q"><strong>Exam:</strong> Explain why constant-speed orbit involves acceleration.</div>
+            <button class="secondary" onclick="toggleMark('g3mark')">Toggle hints</button>
+            <div class="mark" id="g3mark"><strong>Hints:</strong> Velocity direction changes; a toward centre; v²/r.</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"GPE = mgh is always valid."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('g4why')">Why students think this</button>
+            <button onclick="toggle('g4phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('g4exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('g4unit')">Unit check</button>
+          </div>
+          <div class="panel" id="g4why"><strong>Why:</strong> mgh used everywhere, becomes "default."</div>
+          <div class="panel" id="g4phys"><strong>Correct:</strong> mgh approximation for small h where g ≈ constant. Generally U = −GMm/r.</div>
+          <div class="panel" id="g4exam">
+            <div class="q"><strong>Exam:</strong> Probe moves r = 2R to 3R. Find ΔU in terms of GMm/R.</div>
+            <button class="secondary" onclick="toggleMark('g4mark')">Toggle hints</button>
+            <div class="mark" id="g4mark"><strong>Hints:</strong> ΔU = −GMm/3R − (−GMm/2R) = GMm/6R.</div>
+          </div>
+          <div class="panel" id="g4unit">
+            <div class="unitQ"><strong>Unit:</strong> U = −GMm/r. Verify gives J.</div>
+            <button class="secondary" onclick="toggleMark('g4unitmark')">Toggle answer</button>
+            <div class="mark" id="g4unitmark"><strong>Answer:</strong> (N·m²·kg⁻²)(kg)(kg)/m = N·m = J ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ELECTRIC FIELD -->
+    <div class="section" id="electric">
+      <h2><span class="badgeField">Field</span> Electric field</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"A moving charge always follows a field line."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('ef1why')">Why students think this</button>
+            <button onclick="toggle('ef1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('ef1exam')">Exam question</button>
+          </div>
+          <div class="panel" id="ef1why"><strong>Why:</strong> Field lines look like tracks.</div>
+          <div class="panel" id="ef1phys"><strong>Correct:</strong> Lines show force direction. With initial velocity not along line → curved trajectory (Newton's laws).</div>
+          <div class="panel" id="ef1exam">
+            <div class="q"><strong>Exam:</strong> Electron enters uniform E-field perpendicular to lines. Describe motion.</div>
+            <button class="secondary" onclick="toggleMark('ef1mark')">Toggle hints</button>
+            <div class="mark" id="ef1mark"><strong>Hints:</strong> Parabolic path; constant force; like projectile.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"If not on a field line, no force."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('ef2why')">Why students think this</button>
+            <button onclick="toggle('ef2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('ef2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="ef2why"><strong>Why:</strong> Diagrams show discrete lines.</div>
+          <div class="panel" id="ef2phys"><strong>Correct:</strong> Field everywhere continuous. Lines are visualization; density shows strength. F = qE at any point.</div>
+          <div class="panel" id="ef2exam">
+            <div class="q"><strong>Exam:</strong> Why does a charge between drawn field lines still feel a force?</div>
+            <button class="secondary" onclick="toggleMark('ef2mark')">Toggle hints</button>
+            <div class="mark" id="ef2mark"><strong>Hints:</strong> Field continuous; lines representative; more lines = stronger.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Field lines are real physical things."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('ef3why')">Why students think this</button>
+            <button onclick="toggle('ef3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('ef3exam')">Exam question</button>
+          </div>
+          <div class="panel" id="ef3why"><strong>Why:</strong> Iron filings look like lines.</div>
+          <div class="panel" id="ef3phys"><strong>Correct:</strong> Lines are Faraday's visualization tool. Field is continuous vector quantity.</div>
+          <div class="panel" id="ef3exam">
+            <div class="q"><strong>Exam:</strong> State two conventions for drawing E-field lines and their meaning.</div>
+            <button class="secondary" onclick="toggleMark('ef3mark')">Toggle hints</button>
+            <div class="mark" id="ef3mark"><strong>Hints:</strong> + to −; tangent = direction; density = magnitude; don't cross.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Electric field and force are the same thing."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('ef4why')">Why students think this</button>
+            <button onclick="toggle('ef4phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('ef4exam')">Exam question</button>
+          </div>
+          <div class="panel" id="ef4why"><strong>Why:</strong> Both vectors involving charges.</div>
+          <div class="panel" id="ef4phys"><strong>Correct:</strong> E = F/q (force per unit charge). Field exists without test charge. F = qE depends on q.</div>
+          <div class="panel" id="ef4exam">
+            <div class="q"><strong>Exam:</strong> E = 500 N/C. Find force on (a) +2 μC (b) −3 μC.</div>
+            <button class="secondary" onclick="toggleMark('ef4mark')">Toggle hints</button>
+            <div class="mark" id="ef4mark"><strong>Hints:</strong> F = qE; (a) 1 mN along E; (b) 1.5 mN opposite E.</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"Coulomb's law applies to any charge distribution."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('ef5why')">Why students think this</button>
+            <button onclick="toggle('ef5phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('ef5exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('ef5unit')">Unit check</button>
+          </div>
+          <div class="panel" id="ef5why"><strong>Why:</strong> Apply F = kq₁q₂/r² everywhere.</div>
+          <div class="panel" id="ef5phys"><strong>Correct:</strong> Simple form for point charges. Extended distributions need integration or Gauss's law.</div>
+          <div class="panel" id="ef5exam">
+            <div class="q"><strong>Exam:</strong> Why can uniformly charged spheres be treated as point charges? When does this fail?</div>
+            <button class="secondary" onclick="toggleMark('ef5mark')">Toggle hints</button>
+            <div class="mark" id="ef5mark"><strong>Hints:</strong> Shell theorem; fails if overlap, non-uniform, or polarisation.</div>
+          </div>
+          <div class="panel" id="ef5unit">
+            <div class="unitQ"><strong>Unit:</strong> What are units of k in F = kq₁q₂/r²?</div>
+            <button class="secondary" onclick="toggleMark('ef5unitmark')">Toggle answer</button>
+            <div class="mark" id="ef5unitmark"><strong>Answer:</strong> N·m²·C⁻² ✓</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"Electric potential = electric potential energy."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('ef6why')">Why students think this</button>
+            <button onclick="toggle('ef6phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('ef6exam')">Exam question</button>
+          </div>
+          <div class="panel" id="ef6why"><strong>Why:</strong> Similar words.</div>
+          <div class="panel" id="ef6phys"><strong>Correct:</strong> V = U/q (energy per unit charge). U depends on q; V does not.</div>
+          <div class="panel" id="ef6exam">
+            <div class="q"><strong>Exam:</strong> +2 μC moves through 12 V. Find ΔU. Does it increase or decrease high→low?</div>
+            <button class="secondary" onclick="toggleMark('ef6mark')">Toggle hints</button>
+            <div class="mark" id="ef6mark"><strong>Hints:</strong> ΔU = qΔV = 24 μJ; high→low: ΔV neg → ΔU neg (decreases).</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"A charged body has only one type of charge."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('ef7why')">Why students think this</button>
+            <button onclick="toggle('ef7phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('ef7exam')">Exam question</button>
+          </div>
+          <div class="panel" id="ef7why"><strong>Why:</strong> "The rod is positive" sounds like only + present.</div>
+          <div class="panel" id="ef7phys"><strong>Correct:</strong> All matter has both p and e. "Positive" = net excess/deficit. Both types always present.</div>
+          <div class="panel" id="ef7exam">
+            <div class="q"><strong>Exam:</strong> Explain at atomic level how glass becomes positive by rubbing silk.</div>
+            <button class="secondary" onclick="toggleMark('ef7mark')">Toggle hints</button>
+            <div class="mark" id="ef7mark"><strong>Hints:</strong> Electrons transfer to silk; glass loses e⁻; still has protons; net +.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAGNETIC -->
+    <div class="section" id="magnetic">
+      <h2><span class="badgeField">Field</span> Magnetic field</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"North/south poles are like positive/negative charges."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('m1why')">Why students think this</button>
+            <button onclick="toggle('m1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('m1exam')">Exam question</button>
+          </div>
+          <div class="panel" id="m1why"><strong>Why:</strong> Opposites attract in both; similar diagrams.</div>
+          <div class="panel" id="m1phys"><strong>Correct:</strong> Magnetic poles always in pairs (dipoles). Electric charges can be isolated. No magnetic monopoles observed.</div>
+          <div class="panel" id="m1exam">
+            <div class="q"><strong>Exam:</strong> Why does cutting a magnet produce two complete magnets, but charges can be separated?</div>
+            <button class="secondary" onclick="toggleMark('m1mark')">Toggle hints</button>
+            <div class="mark" id="m1mark"><strong>Hints:</strong> Atomic dipoles; each piece still has N and S; no monopoles.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Magnetic field lines start at N and end at S."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('m2why')">Why students think this</button>
+            <button onclick="toggle('m2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('m2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="m2why"><strong>Why:</strong> Diagrams show lines "leaving" N, "entering" S.</div>
+          <div class="panel" id="m2phys"><strong>Correct:</strong> Magnetic lines are closed loops. Outside: N→S. Inside magnet: S→N. ∇·B = 0.</div>
+          <div class="panel" id="m2exam">
+            <div class="q"><strong>Exam:</strong> Sketch field inside and outside bar magnet. Why must lines form closed loops?</div>
+            <button class="secondary" onclick="toggleMark('m2mark')">Toggle hints</button>
+            <div class="mark" id="m2mark"><strong>Hints:</strong> Lines continue through magnet S→N; no monopoles.</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"Charges at rest feel magnetic forces."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('m3why')">Why students think this</button>
+            <button onclick="toggle('m3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('m3exam')">Exam question</button>
+          </div>
+          <div class="panel" id="m3why"><strong>Why:</strong> Magnets attract things not visibly moving.</div>
+          <div class="panel" id="m3phys"><strong>Correct:</strong> F = qvB sin θ. If v = 0, F = 0. Magnetic force requires motion.</div>
+          <div class="panel" id="m3exam">
+            <div class="q"><strong>Exam:</strong> Electron at rest in B-field. Describe motion. Compare to E-field.</div>
+            <button class="secondary" onclick="toggleMark('m3mark')">Toggle hints</button>
+            <div class="mark" id="m3mark"><strong>Hints:</strong> B: no force, stays at rest. E: accelerates along field.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Magnets attract all metals."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('m4why')">Why students think this</button>
+            <button onclick="toggle('m4phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('m4exam')">Exam question</button>
+          </div>
+          <div class="panel" id="m4why"><strong>Why:</strong> Most classroom metals are steel.</div>
+          <div class="panel" id="m4phys"><strong>Correct:</strong> Strong attraction only for ferromagnetic materials (Fe, Co, Ni). Aluminium/copper not strongly attracted.</div>
+          <div class="panel" id="m4exam">
+            <div class="q"><strong>Exam:</strong> Why does magnet attract steel paperclip but not aluminium?</div>
+            <button class="secondary" onclick="toggleMark('m4mark')">Toggle hints</button>
+            <div class="mark" id="m4mark"><strong>Hints:</strong> Steel ferromagnetic (domains align); Al not ferromagnetic.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Induction happens when magnet is near coil (even stationary)."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('m5why')">Why students think this</button>
+            <button onclick="toggle('m5phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('m5exam')">Exam question</button>
+          </div>
+          <div class="panel" id="m5why"><strong>Why:</strong> Moving magnet → current, so magnet near coil should work.</div>
+          <div class="panel" id="m5phys"><strong>Correct:</strong> Induced emf requires changing flux: ε = −dΦ/dt. Stationary magnet → no flux change → no emf.</div>
+          <div class="panel" id="m5exam">
+            <div class="q"><strong>Exam:</strong> Magnet held still in coil. Galvanometer reading? Then pulled out quickly?</div>
+            <button class="secondary" onclick="toggleMark('m5mark')">Toggle hints</button>
+            <div class="mark" id="m5mark"><strong>Hints:</strong> Still: zero. Pulled out: transient current (Lenz's law).</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"Lenz's law: induced current opposes magnet's motion."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('m6why')">Why students think this</button>
+            <button onclick="toggle('m6phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('m6exam')">Exam question</button>
+            <button class="unitBtn" onclick="toggle('m6unit')">Unit check</button>
+          </div>
+          <div class="panel" id="m6why"><strong>Why:</strong> "Opposes" shortened to "opposes motion."</div>
+          <div class="panel" id="m6phys"><strong>Correct:</strong> Induced current produces B-field that opposes <em>change in flux</em>, not motion itself.</div>
+          <div class="panel" id="m6exam">
+            <div class="q"><strong>Exam:</strong> Coil moves into uniform B-field. Use Lenz's law to find current direction.</div>
+            <button class="secondary" onclick="toggleMark('m6mark')">Toggle hints</button>
+            <div class="mark" id="m6mark"><strong>Hints:</strong> Flux increases; induced B opposes increase; current from RHR.</div>
+          </div>
+          <div class="panel" id="m6unit">
+            <div class="unitQ"><strong>Unit:</strong> Flux Φ = BA. What are units of Φ?</div>
+            <button class="secondary" onclick="toggleMark('m6unitmark')">Toggle answer</button>
+            <div class="mark" id="m6unitmark"><strong>Answer:</strong> T·m² = Wb (weber). Also Wb = V·s ✓</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Earth's geographic north is a magnetic north pole."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('m7why')">Why students think this</button>
+            <button onclick="toggle('m7phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('m7exam')">Exam question</button>
+          </div>
+          <div class="panel" id="m7why"><strong>Why:</strong> Both called "north."</div>
+          <div class="panel" id="m7phys"><strong>Correct:</strong> Compass N-pole points to geographic N because it's attracted there → geographic N is magnetic S!</div>
+          <div class="panel" id="m7exam">
+            <div class="q"><strong>Exam:</strong> Why does compass N point to geographic N? What's the magnetic polarity there?</div>
+            <button class="secondary" onclick="toggleMark('m7mark')">Toggle hints</button>
+            <div class="mark" id="m7mark"><strong>Hints:</strong> Opposite poles attract; geographic N = magnetic S.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NUCLEAR -->
+    <div class="section" id="nuclear">
+      <h2><span class="badgeField">Field</span> Nuclear field</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Mass is conserved in nuclear reactions."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('n1why')">Why students think this</button>
+            <button onclick="toggle('n1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('n1exam')">Exam question</button>
+          </div>
+          <div class="panel" id="n1why"><strong>Why:</strong> Chemistry teaches mass conservation.</div>
+          <div class="panel" id="n1phys"><strong>Correct:</strong> Total energy conserved. Mass defect → energy: E = mc².</div>
+          <div class="panel" id="n1exam">
+            <div class="q"><strong>Exam:</strong> Mass defect 0.20 u in fission. Calculate energy in MeV.</div>
+            <button class="secondary" onclick="toggleMark('n1mark')">Toggle hints</button>
+            <div class="mark" id="n1mark"><strong>Hints:</strong> 1 u ≈ 931.5 MeV/c²; E ≈ 186 MeV.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Half-life means exactly half decay each time."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('n2why')">Why students think this</button>
+            <button onclick="toggle('n2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('n2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="n2why"><strong>Why:</strong> "Half" sounds deterministic.</div>
+          <div class="panel" id="n2phys"><strong>Correct:</strong> Decay is random. Half-life is statistical for large samples; expected number halves.</div>
+          <div class="panel" id="n2exam">
+            <div class="q"><strong>Exam:</strong> 8×10⁸ nuclei, t½ = 6 h. Estimate N after 18 h. Why might actual differ?</div>
+            <button class="secondary" onclick="toggleMark('n2mark')">Toggle hints</button>
+            <div class="mark" id="n2mark"><strong>Hints:</strong> 3 half-lives → N/8 = 10⁸; statistical fluctuations.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"α, β, γ are different strengths of same radiation."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('n3why')">Why students think this</button>
+            <button onclick="toggle('n3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('n3exam')">Exam question</button>
+          </div>
+          <div class="panel" id="n3why"><strong>Why:</strong> "More penetrating" = "stronger."</div>
+          <div class="panel" id="n3phys"><strong>Correct:</strong> α = He nucleus, β = electron/positron, γ = photon. Different particles entirely.</div>
+          <div class="panel" id="n3exam">
+            <div class="q"><strong>Exam:</strong> Source emits α and γ. Describe suitable shielding.</div>
+            <button class="secondary" onclick="toggleMark('n3mark')">Toggle hints</button>
+            <div class="mark" id="n3mark"><strong>Hints:</strong> α: paper/skin; γ: lead/concrete.</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"Binding energy: more stable = less BE."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('n4why')">Why students think this</button>
+            <button onclick="toggle('n4phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('n4exam')">Exam question</button>
+          </div>
+          <div class="panel" id="n4why"><strong>Why:</strong> "Bound" sounds like energy stored inside.</div>
+          <div class="panel" id="n4phys"><strong>Correct:</strong> BE = energy to separate nucleus. More stable = greater BE (per nucleon).</div>
+          <div class="panel" id="n4exam">
+            <div class="q"><strong>Exam:</strong> Why is larger BE/A = more stable?</div>
+            <button class="secondary" onclick="toggleMark('n4mark')">Toggle hints</button>
+            <div class="mark" id="n4mark"><strong>Hints:</strong> More energy needed to remove nucleon; lower energy state.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTICLE -->
+    <div class="section" id="particle">
+      <h2><span class="badgeField">Field</span> Particle physics</h2>
+      <div class="grid">
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Antimatter is just 'negative matter'."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('p1why')">Why students think this</button>
+            <button onclick="toggle('p1phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('p1exam')">Exam question</button>
+          </div>
+          <div class="panel" id="p1why"><strong>Why:</strong> Positron has + charge, so "opposite sign."</div>
+          <div class="panel" id="p1phys"><strong>Correct:</strong> Same mass, opposite charge and quantum numbers. Annihilate with partners → photons.</div>
+          <div class="panel" id="p1exam">
+            <div class="q"><strong>Exam:</strong> e⁻ and e⁺ annihilate at rest. What's produced? How is momentum conserved?</div>
+            <button class="secondary" onclick="toggleMark('p1mark')">Toggle hints</button>
+            <div class="mark" id="p1mark"><strong>Hints:</strong> Two γ photons opposite directions; E = 2mc².</div>
+          </div>
+        </div>
+        <div class="card" data-level="HL">
+          <div class="cardTop"><div class="misconception">"Quarks can be observed directly."</div><span class="tag hl">HL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('p2why')">Why students think this</button>
+            <button onclick="toggle('p2phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('p2exam')">Exam question</button>
+          </div>
+          <div class="panel" id="p2why"><strong>Why:</strong> "Better detector" solves everything.</div>
+          <div class="panel" id="p2phys"><strong>Correct:</strong> Quarks confined. Separation creates energy → new hadrons (hadronisation). Inferred via jets.</div>
+          <div class="panel" id="p2exam">
+            <div class="q"><strong>Exam:</strong> Why do high-energy collisions produce jets, not isolated quarks?</div>
+            <button class="secondary" onclick="toggleMark('p2mark')">Toggle hints</button>
+            <div class="mark" id="p2mark"><strong>Hints:</strong> Confinement; energy → q-qbar pairs; hadronisation.</div>
+          </div>
+        </div>
+        <div class="card" data-level="SL">
+          <div class="cardTop"><div class="misconception">"Can ignore charge conservation if energy conserved."</div><span class="tag sl">SL</span></div>
+          <div class="btnRow">
+            <button class="secondary" onclick="toggle('p3why')">Why students think this</button>
+            <button onclick="toggle('p3phys')">Correct physics</button>
+            <button class="tertiary" onclick="toggle('p3exam')">Exam question</button>
+          </div>
+          <div class="panel" id="p3why"><strong>Why:</strong> "Conservation" = one rule (energy).</div>
+          <div class="panel" id="p3phys"><strong>Correct:</strong> Must conserve charge, baryon #, lepton #, energy, momentum. Violate any → forbidden.</div>
+          <div class="panel" id="p3exam">
+            <div class="q"><strong>Exam:</strong> Is p → n + e⁺ possible? Use two conservation laws.</div>
+            <button class="secondary" onclick="toggleMark('p3mark')">Toggle hints</button>
+            <div class="mark" id="p3mark"><strong>Hints:</strong> Charge OK (+1→0+1); lepton # fails (0→0+(−1)).</div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="footer">
-      <b>Teacher move:</b> Reveal <b>Why</b> first (get students to articulate the trap), then reveal <b>Correct physics</b>,
-      then assign the <b>Exam question</b> as a 2–4 minute mini-response. Use markscheme hints only after sampling answers.
+      <b>Teacher tip:</b> Reveal <b>Why</b> first → <b>Correct physics</b> → <b>Exam question</b> (2-4 min). 
+      <b>Unit Analysis</b> (green) builds dimensional reasoning skills.
       <br><br>
-      Want this to match your unit exactly? I can expand each field into a full unit pack (e.g., Waves, Thermal, Quantum, Circular Motion)
-      while keeping the same misconception→why→correction→exam format.
+      <b>Topics:</b> SHM, Waves, Wave Nature of Light, Gravitational, Electric, Capacitance, DC Circuits, Magnetic, Nuclear, Particle
     </div>
-
   </div>
 </body>
 </html>
+
 
 
